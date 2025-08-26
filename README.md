@@ -1,3 +1,5 @@
+Koden er online her: https://limf260825.streamlit.app/
+
 # 📊 Streamlit CSV til Excel Konverter
 
 En simpel Streamlit app der kan:
@@ -13,3 +15,4 @@ git clone https://github.com/<dit-brugernavn>/streamlit-csv-to-excel.git
 cd streamlit-csv-to-excel
 pip install -r requirements.txt
 streamlit run app.py
+
