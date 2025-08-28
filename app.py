@@ -61,8 +61,8 @@ if uploaded_file:
             output.seek(0)
 
             # Vis resultater i Streamlit
-            st.success(f"Middel (maj–sept): {average}" if isinstance(average, (int, float)) else "Ingen data til beregning")
-            st.success(f"Median maksimum (vintermåneder): {median_max}" if isinstance(median_max, (int, float)) else "Ingen data til median af max")
+            st.success(f"Middel (maj–sept): {average} L/s" if isinstance(average, (int, float)) else "Ingen data til beregning")
+            st.success(f"Median maksimum (vintermåneder): {median_max} L/s" if isinstance(median_max, (int, float)) else "Ingen data til median af max")
 
             st.download_button(
                 label="Download Excel-fil",
@@ -73,3 +73,4 @@ if uploaded_file:
 
     except Exception as e:
         st.error(f"Noget gik galt: {e}")
+
