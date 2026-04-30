@@ -13,7 +13,7 @@ uploaded_file = st.file_uploader("Vælg CSV-fil", type="csv")
 
 if uploaded_file:
     try:
-        df = pd.read_csv(uploaded_file, sep=';')
+        df = pd.read_csv(uploaded_file, sep=';', encoding='utf-8-sig')
 
         if df.empty:
             st.error("CSV-filen er tom.")
@@ -22,7 +22,7 @@ if uploaded_file:
             df.iloc[:, 1] = pd.to_numeric(df.iloc[:, 1].astype(str).str.replace(',', '.'), errors='coerce')
 
             # Indsæt MONTH-kolonne
-            df['Month'] = pd.to_datetime(df.iloc[:, 0], errors='coerce').dt.month
+            df['Month'] = pd.to_datetime(df.iloc[:, 0], dayfirst=True, errors='coerce').dt.month
 
             # Beregn middel for maj-sept
             maj_sept_values = df.loc[df['Month'].between(5, 9), df.columns[1]]
